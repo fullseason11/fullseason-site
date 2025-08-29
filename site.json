@@ -11,7 +11,7 @@
     "Untitled 1.png",
     "Untitled 2.png",
     "Untitled 3.png",
-    "Untitle 4.png"
+    "Untittle 4.jpeg"
   ],
   "services": [
     {
@@ -25,6 +25,35 @@
     {
       "title": "Creative Solutions",
       "description": "로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작"
+    }
+  ],
+  "printingMethods": [
+    {
+      "title": "DTF Printing",
+      "videoPlaceholder": "영상 준비 중 (외부 링크 예정)",
+      "features": [
+        "고해상도 출력 / 선명한 색감",
+        "다양한 원단 적용 (면, 폴리, 합성섬유)",
+        "소량 다품종·샘플링 최적화",
+        "빠른 제작 사이클 → 드랍 운영 유리"
+      ]
+    },
+    {
+      "title": "HTV Vinyl",
+      "videoPlaceholder": "영상 준비 중",
+      "features": [
+        "글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재",
+        "소재별 열/압력 최적화 프레스 세팅",
+        "유니폼, 패션 아이템, 프로모션 굿즈"
+      ]
+    },
+    {
+      "title": "Sublimation",
+      "videoPlaceholder": "영상 준비 중",
+      "features": [
+        "섬유 및 소품에 선명하고 오래가는 전사 효과",
+        "티셔츠, 텀블러, 머그컵, 에코백 적용"
+      ]
     }
   ]
 }
