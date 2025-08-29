@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>FullSeason · Beyond Printing, Towards Branding</title>
 <meta name="description" content="주식회사 풀시즌 — 프린팅 기술과 브랜드 운영을 아우르는 제조·운영사"/>
+
 <style>
   :root{
     --bg:#0a0b11; --text:#e9ecf1; --muted:#9aa4b2; --card:#121420; --line:#1b2131;
@@ -20,8 +21,7 @@
   header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(120%) blur(8px);
     background:linear-gradient(180deg,rgba(10,11,17,.85),rgba(10,11,17,.6) 55%,transparent)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
-  .brand{font-weight:800;letter-spacing:.2px} 이게 내가 만든 홈페이지인데 레이아웃이랑 글자 배치, 글자크기 이런거를 수정해줬으면 좋겠어. 개선해줘 코드를 짜줘.
-
+  .brand{font-weight:800;letter-spacing:.2px}
   .nav a{opacity:.9}
   .nav a:hover{opacity:1}
 
@@ -194,6 +194,7 @@
 <body>
   <!-- Mouse Cursor Glow -->
   <div class="cursor-glow" id="cursor-glow"></div>
+  
   <header>
     <div class="wrap nav">
       <div class="brand">FullSeason Co., Ltd.</div>
@@ -203,6 +204,7 @@
       </nav>
     </div>
   </header>
+
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
@@ -216,6 +218,7 @@
       <a class="gbtn" href="#info">Contact</a>
     </div>
   </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap grid g2">
@@ -234,6 +237,7 @@
       </div>
     </div>
   </section>
+
   <!-- SERVICES -->
   <section id="services">
     <div class="wrap">
@@ -250,6 +254,7 @@
       </div>
     </div>
   </section>
+
   <!-- TECH -->
   <section id="tech">
     <div class="wrap">
@@ -259,6 +264,7 @@
       </div>
     </div>
   </section>
+
   <!-- COMPANY INFO -->
   <section id="info">
     <div class="wrap grid g2">
@@ -282,11 +288,14 @@
       </div>
     </div>
   </section>
+
   <footer>
     <div class="wrap">© <span id="yr"></span> FullSeason Co., Ltd. All rights reserved.</div>
   </footer>
+
   <!-- AI Notice -->
   <div class="ai-badge">본 홈페이지에 사용된 인물 이미지는 AI 기술로 생성되었으며, 실제 임직원과는 무관합니다.</div>
+
 <script>
   // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
