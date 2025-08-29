@@ -10,24 +10,24 @@
   "carouselImages": [],
   "galleryImages": [
     {
-      "filename": "printing_tech.jpg",
-      "title": "최첨단 프린팅 기술",
-      "altText": "다양한 색상의 원단에 디자인을 프린팅하는 모습"
+      "filename": "Untitled 1.png",
+      "title": "풀시즌의 시작",
+      "altText": "풀시즌의 시작을 알리는 이미지"
     },
     {
-      "filename": "brand_creation.jpg",
-      "title": "성공적인 브랜드 구축",
-      "altText": "다양한 제품이 전시된 세련된 브랜드 쇼룸"
+      "filename": "Untitled 2.png",
+      "title": "다양한 제품군",
+      "altText": "풀시즌의 다양한 제품군을 보여주는 이미지"
     },
     {
-      "filename": "creative_design.jpg",
-      "title": "혁신적인 디자인 솔루션",
-      "altText": "디자이너들이 태블릿으로 아이디어를 스케치하는 모습"
+      "filename": "Untitled 3.png",
+      "title": "프린팅 기술력",
+      "altText": "풀시즌의 프린팅 기술력을 나타내는 이미지"
     },
     {
-      "filename": "partnership.jpg",
-      "title": "파트너십을 통한 성장",
-      "altText": "두 사람이 악수하며 성공적인 비즈니스 협력을 나타내는 모습"
+      "filename": "Untittle 4.jpeg",
+      "title": "성장하는 비즈니스",
+      "altText": "성장하고 있는 풀시즌의 비즈니스를 상징하는 이미지"
     }
   ],
   "services": [
