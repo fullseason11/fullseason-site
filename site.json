@@ -7,29 +7,24 @@
     "email": "fullseason11@naver.com",
     "bizRegNo": "185-87-03430"
   },
-  "carouselImages": [],
-  "galleryImages": [
+  "carouselImages": [
     {
       "filename": "Untitled 1.png",
-      "title": "풀시즌의 시작",
-      "altText": "풀시즌의 시작을 알리는 이미지"
+      "altText": "Printing & Manufacturing"
     },
     {
       "filename": "Untitled 2.png",
-      "title": "다양한 제품군",
-      "altText": "풀시즌의 다양한 제품군을 보여주는 이미지"
+      "altText": "Brand Operation"
     },
     {
       "filename": "Untitled 3.png",
-      "title": "프린팅 기술력",
-      "altText": "풀시즌의 프린팅 기술력을 나타내는 이미지"
-    },
-    {
-      "filename": "Untittle 4.jpeg",
-      "title": "성장하는 비즈니스",
-      "altText": "성장하고 있는 풀시즌의 비즈니스를 상징하는 이미지"
+      "altText": "Creative Solutions"
     }
   ],
+  "aboutImage": {
+    "filename": "Untittle 4.jpeg",
+    "altText": "성장하는 비즈니스"
+  },
   "services": [
     {
       "title": "Printing & Manufacturing",
