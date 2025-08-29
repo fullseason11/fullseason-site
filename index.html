@@ -104,12 +104,12 @@
     display:flex; height:100%;
     /* 4장 x 2세트 = 8장. 각 슬라이드가 컨테이너 폭 100%를 차지하므로 총 800%. */
     width:800%;
-    animation: slideLoop 24s linear infinite; /* 애니메이션 속도를 조절하여 자연스럽게 흐르도록 */
+    animation: slideLoop 24s linear infinite;
   }
   /* 애니메이션: 처음 세트(0%) -> 두번째 세트(-400%)까지 이동, 끝에서 자연 재시작 */
   @keyframes slideLoop{
     0%{transform:translateX(0%)}
-    100%{transform:translateX(-400%)} /* 총 슬라이드 개수 * 각 슬라이드 폭 (4 * 100%) */
+    100%{transform:translateX(-400%)}
   }
   .slide{
     flex:0 0 100%; height:100%; position:relative; overflow:hidden;
@@ -200,19 +200,8 @@
   <section id="services">
     <div class="wrap">
       <h2>사업영역</h2>
-      <div class="grid g3">
-        <div class="card">
-          <h3>Printing & Manufacturing</h3>
-          <p class="muted">DTF / HTV Vinyl / Sublimation<br/>굿즈 · 유니폼 · 프로모션 제작</p>
-        </div>
-        <div class="card">
-          <h3>Brand Operation</h3>
-          <p class="muted">자체 브랜드 기획·운영(Coming Soon)<br/>드랍·프리오더 중심 운영</p>
-        </div>
-        <div class="card">
-          <h3>Creative Solutions</h3>
-          <p class="muted">로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작</p>
-        </div>
+      <div class="grid g3" id="services-grid">
+        <!-- JS가 site.json에서 데이터를 가져와 채웁니다 -->
       </div>
     </div>
   </section>
@@ -258,12 +247,12 @@
     <div class="wrap grid g2">
       <div class="card">
         <h2>회사정보</h2>
-        <p class="muted">회사명: 주식회사 풀시즌 (FullSeason Co., Ltd.)</p>
-        <p class="muted">대표이사: 김순주</p>
-        <p class="muted">주소: 경상남도 양산시 양주1길 11, 403호 (세종빌딩)</p>
-        <p class="muted">대표번호: 1544-5627</p>
-        <p class="muted">이메일: fullseason11@naver.com</p>
-        <p class="muted">사업자등록번호: 185-87-03430</p>
+        <p class="muted">회사명: <span id="companyName"></span></p>
+        <p class="muted">대표이사: <span id="companyCEO"></span></p>
+        <p class="muted">주소: <span id="companyAddress"></span></p>
+        <p class="muted">대표번호: <span id="companyPhone"></span></p>
+        <p class="muted">이메일: <span id="companyEmail"></span></p>
+        <p class="muted">사업자등록번호: <span id="companyBizRegNo"></span></p>
         <hr class="divider"/>
       </div>
       <div class="card">
@@ -271,7 +260,7 @@
         <p class="muted">
           본 홈페이지는 <strong>주식회사 풀시즌의 공식 홈페이지</strong>입니다.<br/>
           소비자 상담·교환·반품은 <strong>각 브랜드 스토어 고객센터</strong>를 통해 진행됩니다.<br/>
-          전화 상담은 현재 제공하지 않으며, 문의는 이메일 <strong>fullseason11@naver.com</strong> 으로 부탁드립니다.
+          전화 상담은 현재 제공하지 않으며, 문의는 이메일 <strong><span id="contactEmail"></span></strong> 으로 부탁드립니다.
         </p>
       </div>
     </div>
@@ -291,97 +280,120 @@
   // Headline light jitter (조금 더 자연스럽게)
   (function(){
     const kv = document.querySelector('.kv');
-    function jitter(){
-      kv.style.setProperty('--x', (Math.random()*100)+'%');
-      kv.style.setProperty('--y', (45 + Math.random()*20)+'%'); // Y축 범위 확장
-    }
-    // 기존 애니메이션과 겹치지 않게, 더 미묘한 움직임을 위해 간격 조정
-    setInterval(jitter, 3000); // 3초마다 위치 미세 조정
-  })();
-
-  // Build continuous carousel (checks for real images; fallbacks if missing)
-  (function(){
-    // !!! 중요: GitHub Pages는 대소문자를 구분합니다. 파일명을 정확히 맞춰주세요. !!!
-    // 이미지 파일명에 공백이 있다면 `encodeURI()`로 인코딩하는 것이 안전합니다.
-    const basePath = './assets/img/';
-    const files = [
-      'Untitled%201.png', // 'Untitled 1.png'
-      'Untitled%202.png', // 'Untitled 2.png'
-      'Untitled%203.png', // 'Untitled 3.png'
-      'Untitle%204.png'  // 'Untitle 4.png' (오타가 있어 수정하지 않았습니다. 필요시 'Untitled 4.png'로 변경하세요)
-    ];
-
-    const track = document.getElementById('track');
-
-    // helper: create one slide (img or fallback)
-    function makeSlide(src){
-      const slide = document.createElement('div');
-      slide.className = 'slide fallback'; // 기본은 fallback
-      if(src){
-        const img = new Image();
-        img.alt = 'slide image';
-        img.loading = 'lazy';
-        img.onload = ()=>{
-            slide.classList.remove('fallback');
-            slide.appendChild(img);
-        };
-        img.onerror = ()=>{
-            console.warn(`Failed to load image: ${src}. Displaying fallback.`);
-            // keep fallback class
-        };
-        img.src = src;
+    if (kv) { // kv 요소가 있는지 확인
+      function jitter(){
+        kv.style.setProperty('--x', (Math.random()*100)+'%');
+        kv.style.setProperty('--y', (45 + Math.random()*20)+'%');
       }
-      return slide;
+      setInterval(jitter, 2400);
     }
-
-    // 원본 세트
-    files.forEach(name=>{
-      const src = basePath + name; // 이미 encodeURI 되어있으므로 다시 인코딩할 필요 없음
-      track.appendChild(makeSlide(src));
-    });
-
-    // 루프를 위한 복제 세트 (동일한 이미지를 한 번 더 추가하여 부드러운 루프를 만듭니다)
-    files.forEach(name=>{
-      const src = basePath + name;
-      track.appendChild(makeSlide(src));
-    });
-
-    // 슬라이더 높이 조절 (부모 컨테이너가 aspect-ratio를 가지고 있어 필요 없지만, 유연성을 위해)
-    // const carousel = document.getElementById('carousel');
-    // window.addEventListener('resize', ()=>{
-    //   const carouselWidth = carousel.offsetWidth;
-    //   carousel.style.height = (carouselWidth / (16/9)) + 'px'; // 16:9 비율 유지
-    // });
-    // window.dispatchEvent(new Event('resize')); // 초기 로딩 시 높이 설정
   })();
+
+  // Load data from site.json and populate the page
+  (async function(){
+    try {
+      const response = await fetch('./site.json');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+
+      // Populate Company Info
+      const companyInfo = data.companyInfo;
+      if (companyInfo) {
+        document.getElementById('companyName').textContent = companyInfo.name || '';
+        document.getElementById('companyCEO').textContent = companyInfo.ceo || '';
+        document.getElementById('companyAddress').textContent = companyInfo.address || '';
+        document.getElementById('companyPhone').textContent = companyInfo.phone || '';
+        document.getElementById('companyEmail').textContent = companyInfo.email || '';
+        document.getElementById('companyBizRegNo').textContent = companyInfo.bizRegNo || '';
+        document.getElementById('contactEmail').textContent = companyInfo.email || ''; // 안내 섹션 이메일
+      }
+
+      // Build continuous carousel
+      const basePath = './assets/img/';
+      const files = data.carouselImages || []; // site.json에서 이미지 목록 가져오기
+      const track = document.getElementById('track');
+
+      function makeSlide(src){
+        const slide = document.createElement('div');
+        slide.className = 'slide fallback';
+        if(src){
+          const img = new Image();
+          img.alt = 'slide image';
+          img.loading = 'lazy';
+          img.onload = ()=>{ slide.classList.remove('fallback'); slide.appendChild(img); };
+          img.onerror = ()=>{ console.warn(`Failed to load image: ${src}. Displaying fallback.`); };
+          img.src = src;
+        }
+        return slide;
+      }
+
+      if (track) { // track 요소가 있는지 확인
+        // 원본 세트
+        files.forEach(name=>{
+          const src = basePath + encodeURIComponent(name); // encodeURIComponent 사용 권장
+          track.appendChild(makeSlide(src));
+        });
+
+        // 루프를 위한 복제 세트
+        files.forEach(name=>{
+          const src = basePath + encodeURIComponent(name);
+          track.appendChild(makeSlide(src));
+        });
+      }
+
+      // Populate Services section
+      const servicesGrid = document.getElementById('services-grid');
+      const servicesData = data.services || [];
+      if (servicesGrid) { // servicesGrid 요소가 있는지 확인
+        servicesData.forEach(service => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h3>${service.title}</h3>
+            <p class="muted">${service.description}</p>
+          `;
+          servicesGrid.appendChild(card);
+        });
+      }
+
+
+    } catch (error) {
+      console.error('Failed to load or parse site.json:', error);
+      // Fallback for carousel if site.json fails
+      const track = document.getElementById('track');
+      if (track && track.children.length === 0) {
+          const slide = document.createElement('div');
+          slide.className = 'slide fallback';
+          track.appendChild(slide); // 최소한 하나의 fallback 슬라이드 추가
+      }
+      // Fallback for company info if site.json fails (optional, could leave empty or default)
+      document.getElementById('companyName').textContent = 'FullSeason Co., Ltd.';
+      // ... other fallbacks
+    }
+  })();
+
 
   // Card tilt + glare
   (function(){
     const cards = document.querySelectorAll('.card');
     cards.forEach(card=>{
-      const maxTilt = 6; // 최대 기울기 각도
+      const maxTilt = 6;
       card.addEventListener('pointermove', e=>{
         const r = card.getBoundingClientRect();
-        // 마우스 포인터의 상대적 위치 (0 ~ 1)
-        const x = e.clientX - r.left;
-        const y = e.clientY - r.top;
-        const px = (x / r.width) - 0.5; // -0.5 ~ 0.5
-        const py = (y / r.height) - 0.5; // -0.5 ~ 0.5
-
-        // 기울기 계산: 마우스가 중앙에서 멀어질수록 더 기울어지도록
-        const rx = (+py * maxTilt * 2).toFixed(2); // 위/아래 움직임에 따라 X축 회전
-        const ry = (-px * maxTilt * 2).toFixed(2); // 좌/우 움직임에 따라 Y축 회전
-
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const px = (x / r.width) - 0.5;
+        const py = (y / r.height) - 0.5;
+        const rx = (+py * maxTilt).toFixed(2);
+        const ry = (-px * maxTilt).toFixed(2);
         card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-        
-        // 반사 효과를 위한 CSS 변수 설정
-        card.style.setProperty('--cx', x+'px'); // 배경 그라데이션 위치
+        card.style.setProperty('--cx', x+'px');
         card.style.setProperty('--cy', y+'px');
-        card.style.setProperty('--gx', x+'px'); // 반사 그라데이션 위치
+        card.style.setProperty('--gx', x+'px');
         card.style.setProperty('--gy', y+'px');
       });
       card.addEventListener('pointerleave', ()=>{
-        // 마우스가 벗어나면 원래 상태로 부드럽게 돌아오도록
         card.style.transform = 'perspective(700px) rotateX(0) rotateY(0) translateZ(0)';
         card.style.removeProperty('--cx'); card.style.removeProperty('--cy');
         card.style.removeProperty('--gx'); card.style.removeProperty('--gy');
@@ -389,7 +401,9 @@
     });
   })();
 
-  // crosswebex_nativecall (원문 유지 - 이 함수는 웹사이트 시각 효과와 무관합니다.)
+  // crosswebex_nativecall 함수는 웹사이트의 시각적 효과와 직접적인 관련이 없으므로,
+  // 원문 그대로 유지하거나, 필요 없다면 제거하셔도 됩니다.
+  // 이 함수는 외부 스크립트 또는 특정 브라우저 확장 기능과 통신하는 것으로 보입니다.
   function crosswebex_nativecall(message, callback) {
       const pageurl = document.location.origin + document.location.pathname;
       let EVENT_FROM_PAGE = "__crosswebex__rw_chrome_ext_" + btoa(pageurl);
