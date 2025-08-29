@@ -1,51 +1,162 @@
-<!-- 본문 일부만 예시 (전체 템플릿은 이전 메시지의 index.html 그대로) -->
-<h1 id="hero_title" class="kv">Beyond Printing, <br/>Towards Branding</h1>
-<p id="hero_sub" class="lead">...</p>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FullSeason · Beyond Printing, Towards Branding</title>
+  <meta name="description" content="주식회사 풀시즌 — 프린팅 기술과 브랜드 운영을 아우르는 제조·운영사"/>
+  <style>
+    :root{
+      --bg:#0b0d14; --text:#e9ecf1; --muted:#9aa4b2; --card:#121622; --line:#1c2131;
+      --g1:#6a49ff; --g2:#2a7fff; --g3:#49ff9a;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);
+      font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Pretendard,Inter,system-ui,sans-serif}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(11,13,20,.9),rgba(11,13,20,.7) 60%,transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)}
+    .brand{font-weight:700;letter-spacing:.4px}
+    .kv{font-size:clamp(28px,5vw,54px);line-height:1.1;margin:0}
+    .lead{color:var(--muted);margin:.8rem 0 0}
+    .gbtn{display:inline-block;margin-top:22px;padding:12px 18px;border-radius:12px;
+      background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));color:#000;font-weight:700;text-decoration:none}
+    section{padding:72px 0;border-top:1px solid var(--line)}
+    .grid{display:grid;gap:20px}
+    .g2{grid-template-columns:1fr}.g3{grid-template-columns:1fr}
+    @media(min-width:820px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+    h2{margin:0 0 16px;font-size:24px}
+    h3{margin:0 0 10px;font-size:18px}
+    .muted{color:var(--muted)}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#0f1425;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .hero{padding:84px 0 64px;background:
+      radial-gradient(1000px 500px at 0% -10%, rgba(106,73,255,.25), transparent 60%),
+      radial-gradient(800px 500px at 100% 0%, rgba(42,127,255,.25), transparent 60%),
+      radial-gradient(600px 500px at 50% -20%, rgba(73,255,154,.18), transparent 60%)}
+    .pill{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .videoBox{position:relative;overflow:hidden;border-radius:14px;background:#0f1425;border:1px solid var(--line);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+    .videoBox span{color:var(--muted);font-size:14px}
+    footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--line)}
+    ul.clean{margin:10px 0 0;padding-left:18px}
+    a{color:#9bc4ff;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">FullSeason Co., Ltd.</div>
+      <nav class="muted" style="display:flex;gap:16px">
+        <a href="#about">회사소개</a><a href="#services">사업영역</a>
+        <a href="#tech">프린팅</a><a href="#contact">문의</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- About -->
-<p id="about_overview" class="muted"></p>
-<p id="about_history1" class="muted"></p>
-<p id="about_history2" class="muted"></p>
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="kv">Beyond Printing,<br/>Towards Branding</h1>
+      <p class="lead">풀시즌은 프린팅 기술과 브랜드 운영을 아우르는 제조·운영사로, 아이디어를 실제 브랜드로 완성합니다.</p>
+      <div class="pill">
+        <span class="tag">Printing Support</span>
+        <span class="tag">Brand House</span>
+        <span class="tag">Creative Studio</span>
+      </div>
+      <a class="gbtn" href="#contact">Contact</a>
+    </div>
+  </section>
 
-<!-- Services -->
-<p id="svc_print" class="muted"></p>
-<p id="svc_brand" class="muted"></p>
-<p id="svc_creative" class="muted"></p>
+  <section id="about">
+    <div class="wrap grid g2">
+      <div class="card">
+        <h2>회사소개</h2>
+        <p class="muted">
+          주식회사 풀시즌(FullSeason)은 2024년 설립된 제조 기반 브랜드 운영사입니다.
+          DTF, HTV Vinyl, Sublimation 등 프린팅 기술과 브랜드 운영 경험을 결합해 차별화된 솔루션을 제공합니다.
+        </p>
+      </div>
+      <div class="card">
+        <h2>연혁</h2>
+        <p class="muted">2024.07 — 주식회사 풀시즌 설립</p>
+        <p class="muted">현재 — 자체 브랜드 준비중</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Tech 섹션 캡션 -->
-<ul class="clean muted" id="dtf_points"></ul>
-<ul class="clean muted" id="htv_points"></ul>
-<ul class="clean muted" id="sub_points"></ul>
+  <section id="services">
+    <div class="wrap">
+      <h2>사업영역</h2>
+      <div class="grid g3">
+        <div class="card">
+          <h3>Printing & Manufacturing</h3>
+          <p class="muted">DTF / HTV Vinyl / Sublimation<br/>굿즈 · 유니폼 · 프로모션 제작</p>
+        </div>
+        <div class="card">
+          <h3>Brand Operation</h3>
+          <p class="muted">자체 브랜드 기획·운영(Coming Soon)<br/>드랍·프리오더 중심 운영</p>
+        </div>
+        <div class="card">
+          <h3>Creative Solutions</h3>
+          <p class="muted">로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Contact -->
-<p id="co_addr" class="muted"></p>
-<p id="co_tel" class="muted"></p>
-<p id="co_mail" class="muted"></p>
-<p id="co_reg" class="muted"></p>
+  <section id="tech">
+    <div class="wrap">
+      <h2>프린팅 제조방식</h2>
+      <div class="grid g3">
+        <div class="card">
+          <h3>DTF Printing</h3>
+          <div class="videoBox"><span>영상 준비 중 (외부 링크로 연결 예정)</span></div>
+          <ul class="clean muted">
+            <li>고해상도 출력 / 선명한 색감</li>
+            <li>다양한 원단 적용 (면, 폴리, 합성섬유)</li>
+            <li>소량 다품종·샘플링 최적화</li>
+            <li>빠른 제작 사이클 → 드랍 운영 유리</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>HTV Vinyl</h3>
+          <div class="videoBox"><span>영상 준비 중</span></div>
+          <ul class="clean muted">
+            <li>글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재</li>
+            <li>소재별 열/압력 최적화 프레스 세팅</li>
+            <li>유니폼, 패션 아이템, 프로모션 굿즈</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Sublimation</h3>
+          <div class="videoBox"><span>영상 준비 중</span></div>
+          <ul class="clean muted">
+            <li>섬유 및 소품에 선명하고 오래가는 전사 효과</li>
+            <li>티셔츠, 텀블러, 머그컵, 에코백 적용</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // site.json에서 콘텐츠 읽어와서 화면에 꽂기
-  fetch('site.json').then(r=>r.json()).then(d=>{
-    // Hero
-    document.getElementById('hero_title').innerHTML = d.hero.title;
-    document.getElementById('hero_sub').innerHTML   = d.hero.sub;
-    // About
-    about_overview.textContent = d.about.overview;
-    about_history1.textContent = d.about.history1;
-    about_history2.textContent = d.about.history2;
-    // Services
-    svc_print.innerHTML    = d.services.print;
-    svc_brand.innerHTML    = d.services.brand;
-    svc_creative.innerHTML = d.services.creative;
-    // Tech points
-    const li = (t)=>{ const el=document.createElement('li'); el.textContent=t; return el; };
-    d.tech.dtf.forEach(t=>dtf_points.appendChild(li(t)));
-    d.tech.htv.forEach(t=>htv_points.appendChild(li(t)));
-    d.tech.sub.forEach(t=>sub_points.appendChild(li(t)));
-    // Contact
-    co_addr.textContent = "주소: " + d.contact.address;
-    co_tel.textContent  = "대표번호: " + d.contact.tel;
-    co_mail.textContent = "이메일: " + d.contact.email;
-    co_reg.textContent  = "사업자등록번호: " + d.contact.regno;
-  });
-</script>
+  <section id="contact">
+    <div class="wrap grid g2">
+      <div class="card">
+        <h2>문의</h2>
+        <p class="muted">주소: 경상남도 양산시 양주1길 11, 403호 (세종빌딩)</p>
+        <p class="muted">대표번호: 1544-5627</p>
+        <p class="muted">이메일: info@fullseason.kr</p>
+        <p class="muted">사업자등록번호: 185-87-03430</p>
+      </div>
+      <div class="card">
+        <h2>안내</h2>
+        <p class="muted">본 사이트는 회사 소개용입니다. 소비자 상담/교환/반품은 각 브랜드 스토어에서 진행됩니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">© <span id="yr"></span> FullSeason Co., Ltd. All rights reserved.</div>
+  </footer>
+  <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+</body>
+</html>
