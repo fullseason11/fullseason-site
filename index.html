@@ -25,7 +25,7 @@
   .nav a{opacity:.9}
   .nav a:hover{opacity:1}
 
-  /* HERO (center + gradient light sweep) */
+  /* HERO (center + gradient light sweep improved) */
   .hero{
     padding:96px 0 32px; text-align:center; position:relative; overflow:hidden;
     background:
@@ -39,23 +39,22 @@
     line-height:1.06; margin:0 auto; font-weight:900; letter-spacing:.4px;
     background:var(--grad); background-size:200% 100%;
     -webkit-background-clip:text; background-clip:text; color:transparent;
-    animation: kvgrad 12s linear infinite;
+    animation: kvgrad 12s linear infinite; /* 자연스러운 색상 변화 */
     position:relative; display:inline-block;
     text-shadow: 0 0 10px rgba(106,73,255,.12), 0 0 20px rgba(42,127,255,.10), 0 0 28px rgba(73,255,154,.08);
+    /* kv::after (빛 움직임) 제거 */
   }
   @keyframes kvgrad{ 0%{background-position:0% 0%} 100%{background-position:200% 0%} }
-  .kv::after{
-    content:""; position:absolute; inset:-8%;
-    background: radial-gradient(180px 120px at var(--x,0%) var(--y,50%), rgba(255,255,255,.25), transparent 60%);
-    mix-blend-mode:screen; opacity:.45; filter:blur(2px); pointer-events:none;
-    animation: sweep 7s ease-in-out infinite;
-  }
-  @keyframes sweep{ 0%{ --x:-10%; --y:45% } 50%{ --x:110%; --y:60% } 100%{ --x:-10%; --y:50% } }
+  
+  /* Contact 밑의 빛 효과 제거 - 관련 CSS 삭제 */
+
   .lead{color:var(--muted);margin:14px auto 0; max-width:820px}
   .pill{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:18px}
   .tag{display:inline-block;padding:7px 12px;border-radius:999px;background:#0e1325;border:1px solid var(--line);font-size:12px;color:var(--muted)}
   .gbtn{display:inline-block;margin-top:24px;padding:12px 18px;border-radius:12px;
-    background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));color:#000;font-weight:800;text-decoration:none}
+    background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));color:#000;font-weight:800;text-decoration:none;
+    position:relative; /* Contact 밑의 빛 효과 제거를 위해 relative 속성 유지 */
+  }
 
   /* Sections / Cards */
   section{padding:84px 0;border-top:1px solid var(--line)}
@@ -67,7 +66,7 @@
   .g3{grid-template-columns:1fr}
   @media(min-width:860px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
 
-  /* Card tilt + glare */
+  /* Card tilt + glare - 모든 card에 동일하게 적용되도록 유지 */
   .card{
     background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;
     transform-style:preserve-3d; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
@@ -171,7 +170,7 @@
     <div class="wrap">
       <div class="carousel" id="carousel">
         <div class="track" id="track">
-          <!-- JS가 이미지 로드/검증 후 채웁니다 -->
+          <!-- JS가 site.json에서 이미지 로드/검증 후 채웁니다 -->
         </div>
       </div>
     </div>
@@ -210,34 +209,8 @@
   <section id="tech">
     <div class="wrap">
       <h2>프린팅 제조방식</h2>
-      <div class="grid g3">
-        <div class="card">
-          <h3>DTF Printing</h3>
-          <div class="videoBox" style="aspect-ratio:16/9;background:#0f1425;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted);">영상 준비 중 (외부 링크 예정)</div>
-          <ul class="clean muted" style="margin:10px 0 0;padding-left:18px">
-            <li>고해상도 출력 / 선명한 색감</li>
-            <li>다양한 원단 적용 (면, 폴리, 합성섬유)</li>
-            <li>소량 다품종·샘플링 최적화</li>
-            <li>빠른 제작 사이클 → 드랍 운영 유리</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>HTV Vinyl</h3>
-          <div class="videoBox" style="aspect-ratio:16/9;background:#0f1425;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted);">영상 준비 중</div>
-          <ul class="clean muted" style="margin:10px 0 0;padding-left:18px">
-            <li>글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재</li>
-            <li>소재별 열/압력 최적화 프레스 세팅</li>
-            <li>유니폼, 패션 아이템, 프로모션 굿즈</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Sublimation</h3>
-          <div class="videoBox" style="aspect-ratio:16/9;background:#0f1425;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted);">영상 준비 중</div>
-          <ul class="clean muted" style="margin:10px 0 0;padding-left:18px">
-            <li>섬유 및 소품에 선명하고 오래가는 전사 효과</li>
-            <li>티셔츠, 텀블러, 머그컵, 에코백 적용</li>
-          </ul>
-        </div>
+      <div class="grid g3" id="tech-grid">
+        <!-- JS가 site.json에서 데이터를 가져와 채웁니다 -->
       </div>
     </div>
   </section>
@@ -280,12 +253,12 @@
   // Headline light jitter (조금 더 자연스럽게)
   (function(){
     const kv = document.querySelector('.kv');
-    if (kv) { // kv 요소가 있는지 확인
+    if (kv) {
       function jitter(){
-        kv.style.setProperty('--x', (Math.random()*100)+'%');
-        kv.style.setProperty('--y', (45 + Math.random()*20)+'%');
+        // kv::after (빛 움직임) 애니메이션 제거되었으므로, 이 부분은 더 이상 필요 없음.
+        // 기존 kvgrad 애니메이션은 CSS에서 처리됨.
       }
-      setInterval(jitter, 2400);
+      // setInterval(jitter, 2400); // 더 이상 필요 없는 코드이므로 주석 처리 또는 삭제
     }
   })();
 
@@ -307,14 +280,16 @@
         document.getElementById('companyPhone').textContent = companyInfo.phone || '';
         document.getElementById('companyEmail').textContent = companyInfo.email || '';
         document.getElementById('companyBizRegNo').textContent = companyInfo.bizRegNo || '';
-        document.getElementById('contactEmail').textContent = companyInfo.email || ''; // 안내 섹션 이메일
+        document.getElementById('contactEmail').textContent = companyInfo.email || '';
       }
 
       // Build continuous carousel
       const basePath = './assets/img/';
-      const files = data.carouselImages || []; // site.json에서 이미지 목록 가져오기
+      // 이미지 파일명을 site.json에서 직접 가져오도록 설정
+      const files = data.carouselImages || [];
       const track = document.getElementById('track');
 
+      // helper: create one slide (img or fallback)
       function makeSlide(src){
         const slide = document.createElement('div');
         slide.className = 'slide fallback';
@@ -329,10 +304,10 @@
         return slide;
       }
 
-      if (track) { // track 요소가 있는지 확인
+      if (track) {
         // 원본 세트
         files.forEach(name=>{
-          const src = basePath + encodeURIComponent(name); // encodeURIComponent 사용 권장
+          const src = basePath + encodeURIComponent(name);
           track.appendChild(makeSlide(src));
         });
 
@@ -346,7 +321,7 @@
       // Populate Services section
       const servicesGrid = document.getElementById('services-grid');
       const servicesData = data.services || [];
-      if (servicesGrid) { // servicesGrid 요소가 있는지 확인
+      if (servicesGrid) {
         servicesData.forEach(service => {
           const card = document.createElement('div');
           card.className = 'card';
@@ -358,6 +333,23 @@
         });
       }
 
+      // Populate Tech section (Printing Methods)
+      const techGrid = document.getElementById('tech-grid');
+      const printingMethodsData = data.printingMethods || [];
+      if (techGrid) {
+        printingMethodsData.forEach(method => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          let featuresList = method.features.map(feature => `<li>${feature}</li>`).join('');
+          card.innerHTML = `
+            <h3>${method.title}</h3>
+            <div class="videoBox" style="aspect-ratio:16/9;background:#0f1425;border:1px solid var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted);">${method.videoPlaceholder}</div>
+            <ul class="clean muted" style="margin:10px 0 0;padding-left:18px">${featuresList}</ul>
+          `;
+          techGrid.appendChild(card);
+        });
+      }
+
 
     } catch (error) {
       console.error('Failed to load or parse site.json:', error);
@@ -366,11 +358,27 @@
       if (track && track.children.length === 0) {
           const slide = document.createElement('div');
           slide.className = 'slide fallback';
-          track.appendChild(slide); // 최소한 하나의 fallback 슬라이드 추가
+          track.appendChild(slide);
       }
       // Fallback for company info if site.json fails (optional, could leave empty or default)
       document.getElementById('companyName').textContent = 'FullSeason Co., Ltd.';
-      // ... other fallbacks
+      document.getElementById('companyCEO').textContent = '정보 없음';
+      document.getElementById('companyAddress').textContent = '정보 없음';
+      document.getElementById('companyPhone').textContent = '정보 없음';
+      document.getElementById('companyEmail').textContent = '정보 없음';
+      document.getElementById('companyBizRegNo').textContent = '정보 없음';
+      document.getElementById('contactEmail').textContent = '정보 없음';
+
+      // Fallback for services
+      const servicesGrid = document.getElementById('services-grid');
+      if (servicesGrid && servicesGrid.children.length === 0) {
+        servicesGrid.innerHTML = `<div class="card"><p class="muted">서비스 정보를 불러올 수 없습니다.</p></div>`;
+      }
+      // Fallback for tech
+      const techGrid = document.getElementById('tech-grid');
+      if (techGrid && techGrid.children.length === 0) {
+        techGrid.innerHTML = `<div class="card"><p class="muted">프린팅 방식 정보를 불러올 수 없습니다.</p></div>`;
+      }
     }
   })();
 
@@ -403,7 +411,6 @@
 
   // crosswebex_nativecall 함수는 웹사이트의 시각적 효과와 직접적인 관련이 없으므로,
   // 원문 그대로 유지하거나, 필요 없다면 제거하셔도 됩니다.
-  // 이 함수는 외부 스크립트 또는 특정 브라우저 확장 기능과 통신하는 것으로 보입니다.
   function crosswebex_nativecall(message, callback) {
       const pageurl = document.location.origin + document.location.pathname;
       let EVENT_FROM_PAGE = "__crosswebex__rw_chrome_ext_" + btoa(pageurl);
