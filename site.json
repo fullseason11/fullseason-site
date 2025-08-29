@@ -34,12 +34,13 @@
       "활용: 라이프스타일 굿즈, 브랜드 부자재, 기념품"
     ]
   },
-  "Company Info": {
-    "Company": "주식회사풀시즌 (FullSeason Co., Ltd.),"
-    "CEO": "김순주",
+  "company_info": {
+    "company": "주식회사 풀시즌 (FullSeason Co., Ltd.)",
+    "ceo": "김순주",
     "address": "경상남도 양산시 양주1길 11, 403호 (세종빌딩)",
     "tel": "1544-5627",
     "email": "fullseason11@naver.com",
-    "regno": "185-87-03430"
+    "regno": "185-87-03430",
+    "notice": "본 홈페이지는 주식회사 풀시즌의 공식 홈페이지입니다. 소비자 상담·교환·반품은 각 브랜드 스토어 고객센터를 통해 진행됩니다. 전화 상담은 현재 제공하지 않으며, 문의는 이메일 fullseason11@naver.com 으로 부탁드립니다."
   }
 }
