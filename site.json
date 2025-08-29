@@ -1,58 +1,87 @@
 {
   "companyInfo": {
-    "name": "주식회사 풀시즌 (FullSeason Co., Ltd.)",
-    "ceo": "김순주",
-    "address": "경상남도 양산시 양주1길 11, 403호 (세종빌딩)",
-    "phone": "1544-5627",
-    "email": "fullseason11@naver.com",
-    "bizRegNo": "185-87-03430"
+    "name": "주식회사 풀시즌",
+    "ceo": "홍길동",
+    "address": "서울특별시 강남구 테헤란로 123",
+    "phone": "02-1234-5678",
+    "email": "contact@fullseason.co.kr",
+    "bizRegNo": "123-45-67890"
   },
-  "carouselImages": [
-    "Untitled 1.png",
-    "Untitled 2.png",
-    "Untitled 3.png",
-    "Untittle 4.jpeg"
+  "carouselImages": [],
+  "galleryImages": [
+    {
+      "filename": "printing_tech.jpg",
+      "title": "최첨단 프린팅 기술",
+      "altText": "다양한 색상의 원단에 디자인을 프린팅하는 모습"
+    },
+    {
+      "filename": "brand_creation.jpg",
+      "title": "성공적인 브랜드 구축",
+      "altText": "다양한 제품이 전시된 세련된 브랜드 쇼룸"
+    },
+    {
+      "filename": "creative_design.jpg",
+      "title": "혁신적인 디자인 솔루션",
+      "altText": "디자이너들이 태블릿으로 아이디어를 스케치하는 모습"
+    },
+    {
+      "filename": "partnership.jpg",
+      "title": "파트너십을 통한 성장",
+      "altText": "두 사람이 악수하며 성공적인 비즈니스 협력을 나타내는 모습"
+    }
   ],
   "services": [
     {
-      "title": "Printing & Manufacturing",
-      "description": "DTF / HTV Vinyl / Sublimation<br/>굿즈 · 유니폼 · 프로모션 제작"
+      "title": "프린팅 기술 지원",
+      "description": "DTF, HTV Vinyl, Sublimation 등 최신 프린팅 기술을 활용하여 고객의 다양한 아이디어를 현실로 만듭니다."
     },
     {
-      "title": "Brand Operation",
-      "description": "자체 브랜드 기획·운영(Coming Soon)<br/>드랍·프리오더 중심 운영"
+      "title": "브랜드 기획 및 운영",
+      "description": "기획부터 생산, 마케팅, 유통까지 브랜드의 전 과정을 아우르는 솔루션을 제공하여 성공적인 브랜드를 구축합니다."
     },
     {
-      "title": "Creative Solutions",
-      "description": "로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작"
+      "title": "크리에이티브 스튜디오",
+      "description": "전문 디자이너와 협력하여 독창적이고 매력적인 디자인을 개발하고, 브랜드의 아이덴티티를 강화합니다."
+    },
+    {
+      "title": "제품 개발 및 생산",
+      "description": "시장 트렌드를 분석하고 혁신적인 소재를 활용하여 고품질의 제품을 기획하고 생산합니다."
+    },
+    {
+      "title": "글로벌 유통 및 확장",
+      "description": "온라인 및 오프라인 채널을 통해 국내외 시장에 브랜드를 성공적으로 진출시키고 확장합니다."
+    },
+    {
+      "title": "지속가능한 제조",
+      "description": "환경을 고려한 소재와 공정을 도입하여 지속가능한 가치를 추구하는 제조 방식을 실천합니다."
     }
   ],
   "printingMethods": [
     {
-      "title": "DTF Printing",
-      "videoPlaceholder": "영상 준비 중 (외부 링크 예정)",
+      "title": "DTF (Direct To Film)",
+      "videoPlaceholder": "DTF 프린팅 영상",
       "features": [
-        "고해상도 출력 / 선명한 색감",
-        "다양한 원단 적용 (면, 폴리, 합성섬유)",
-        "소량 다품종·샘플링 최적화",
-        "빠른 제작 사이클 → 드랍 운영 유리"
+        "선명하고 부드러운 인쇄 품질",
+        "다양한 소재에 적용 가능",
+        "내구성이 뛰어나 세탁 견뢰도 우수"
       ]
     },
     {
-      "title": "HTV Vinyl",
-      "videoPlaceholder": "영상 준비 중",
+      "title": "HTV Vinyl (Heat Transfer Vinyl)",
+      "videoPlaceholder": "HTV Vinyl 작업 영상",
       "features": [
-        "글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재",
-        "소재별 열/압력 최적화 프레스 세팅",
-        "유니폼, 패션 아이템, 프로모션 굿즈"
+        "강한 색상과 광택 표현",
+        "소량 생산 및 맞춤 제작 용이",
+        "다양한 질감 표현 가능"
       ]
     },
     {
-      "title": "Sublimation",
-      "videoPlaceholder": "영상 준비 중",
+      "title": "Sublimation (승화전사)",
+      "videoPlaceholder": "Sublimation 프린팅 영상",
       "features": [
-        "섬유 및 소품에 선명하고 오래가는 전사 효과",
-        "티셔츠, 텀블러, 머그컵, 에코백 적용"
+        "원단에 염료가 스며들어 이질감 없음",
+        "폴리에스터 원단에 최적화",
+        "사진처럼 정교한 이미지 표현"
       ]
     }
   ]
