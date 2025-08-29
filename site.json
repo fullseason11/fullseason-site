@@ -9,20 +9,20 @@
   },
   "carouselImages": [
     {
-      "filename": "Untitled 1.png",
+      "filename": "Untitled1.png",
       "altText": "Printing & Manufacturing"
     },
     {
-      "filename": "Untitled 2.png",
+      "filename": "Untitled2.png",
       "altText": "Brand Operation"
     },
     {
-      "filename": "Untitled 3.png",
+      "filename": "Untitled3.png",
       "altText": "Creative Solutions"
     }
   ],
   "aboutImage": {
-    "filename": "Untittle 4.jpeg",
+    "filename": "Untittle4.png",
     "altText": "성장하는 비즈니스"
   },
   "services": [
