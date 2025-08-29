@@ -1,0 +1,51 @@
+<!-- 본문 일부만 예시 (전체 템플릿은 이전 메시지의 index.html 그대로) -->
+<h1 id="hero_title" class="kv">Beyond Printing, <br/>Towards Branding</h1>
+<p id="hero_sub" class="lead">...</p>
+
+<!-- About -->
+<p id="about_overview" class="muted"></p>
+<p id="about_history1" class="muted"></p>
+<p id="about_history2" class="muted"></p>
+
+<!-- Services -->
+<p id="svc_print" class="muted"></p>
+<p id="svc_brand" class="muted"></p>
+<p id="svc_creative" class="muted"></p>
+
+<!-- Tech 섹션 캡션 -->
+<ul class="clean muted" id="dtf_points"></ul>
+<ul class="clean muted" id="htv_points"></ul>
+<ul class="clean muted" id="sub_points"></ul>
+
+<!-- Contact -->
+<p id="co_addr" class="muted"></p>
+<p id="co_tel" class="muted"></p>
+<p id="co_mail" class="muted"></p>
+<p id="co_reg" class="muted"></p>
+
+<script>
+  // site.json에서 콘텐츠 읽어와서 화면에 꽂기
+  fetch('site.json').then(r=>r.json()).then(d=>{
+    // Hero
+    document.getElementById('hero_title').innerHTML = d.hero.title;
+    document.getElementById('hero_sub').innerHTML   = d.hero.sub;
+    // About
+    about_overview.textContent = d.about.overview;
+    about_history1.textContent = d.about.history1;
+    about_history2.textContent = d.about.history2;
+    // Services
+    svc_print.innerHTML    = d.services.print;
+    svc_brand.innerHTML    = d.services.brand;
+    svc_creative.innerHTML = d.services.creative;
+    // Tech points
+    const li = (t)=>{ const el=document.createElement('li'); el.textContent=t; return el; };
+    d.tech.dtf.forEach(t=>dtf_points.appendChild(li(t)));
+    d.tech.htv.forEach(t=>htv_points.appendChild(li(t)));
+    d.tech.sub.forEach(t=>sub_points.appendChild(li(t)));
+    // Contact
+    co_addr.textContent = "주소: " + d.contact.address;
+    co_tel.textContent  = "대표번호: " + d.contact.tel;
+    co_mail.textContent = "이메일: " + d.contact.email;
+    co_reg.textContent  = "사업자등록번호: " + d.contact.regno;
+  });
+</script>
