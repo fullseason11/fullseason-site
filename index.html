@@ -101,6 +101,74 @@
   @media (max-width:520px){ .ai-badge{font-size:10px; right:8px; bottom:8px; padding:5px 8px} }
 
   footer{padding:48px 0;color:var(--muted);border-top:1px solid var(--line); text-align:center}
+
+  /* Carousel Styles */
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+
+  .carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    display: block;
+    aspect-ratio: 16/9; /* Maintain aspect ratio for images */
+    object-fit: cover;
+  }
+
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+  }
+
+  .carousel-button.prev {
+    left: 10px;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .carousel-button.next {
+    right: 10px;
+    border-radius: 5px 0 0 5px;
+  }
+
+  /* About Image Animation */
+  .about-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+  }
+
+  .about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .about-image-wrapper:hover img {
+    transform: scale(1.05);
+  }
 </style>
 </head>
 <body>
@@ -128,8 +196,6 @@
     </div>
   </section>
 
-  <!-- "우리의 비전" 섹션 제거 -->
-
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap grid g2">
@@ -140,6 +206,9 @@
           DTF, HTV Vinyl, Sublimation 등 프린팅 기술과 브랜드 운영 경험을 결합해 차별화된 솔루션을 제공합니다.
         </p>
         <hr class="divider"/>
+      </div>
+      <div class="about-image-wrapper" id="about-image-container">
+        <!-- About Image will be loaded here -->
       </div>
       <div class="card">
         <h2>연혁</h2>
@@ -153,6 +222,13 @@
   <section id="services">
     <div class="wrap">
       <h2>사업영역</h2>
+      <div class="carousel-container">
+        <div class="carousel-slide" id="services-carousel-slide">
+          <!-- Carousel images will be loaded here -->
+        </div>
+        <button class="carousel-button prev" aria-label="Previous slide">&#10094;</button>
+        <button class="carousel-button next" aria-label="Next slide">&#10095;</button>
+      </div>
       <div class="grid g3" id="services-grid">
         <!-- JS가 site.json에서 데이터를 가져와 채웁니다 -->
       </div>
@@ -225,29 +301,61 @@
         document.getElementById('contactEmail').textContent = companyInfo.email || '';
       }
 
-      // "우리의 비전" 섹션이 제거되었으므로, galleryImages 관련 로직도 필요 없습니다.
-      // 따라서 해당 부분을 주석 처리하거나 제거합니다.
-      /*
-      const galleryContainer = document.getElementById('image-gallery');
-      const galleryImages = data.galleryImages || []; 
+      // Populate About Image
+      const aboutImageContainer = document.getElementById('about-image-container');
+      const aboutImage = data.aboutImage;
+      if (aboutImage && aboutImageContainer) {
+        const img = document.createElement('img');
+        img.src = './assets/img/' + encodeURIComponent(aboutImage.filename);
+        img.alt = aboutImage.altText;
+        img.loading = 'lazy';
+        aboutImageContainer.appendChild(img);
+      } else if (aboutImageContainer) {
+        aboutImageContainer.innerHTML = `<img src="https://via.placeholder.com/400x300?text=About+Image+Coming+Soon" alt="About Image Placeholder">`;
+      }
 
-      if (galleryContainer) {
-        galleryImages.forEach(item => {
-          const galleryItem = document.createElement('div');
-          galleryItem.className = 'gallery-item';
-          galleryItem.dataset.title = item.title; 
-          
+
+      // Populate Services Carousel
+      const carouselSlide = document.getElementById('services-carousel-slide');
+      const carouselImages = data.carouselImages || []; 
+
+      if (carouselSlide) {
+        carouselImages.forEach(item => {
           const img = document.createElement('img');
-          img.className = 'gallery-image';
           img.src = './assets/img/' + encodeURIComponent(item.filename);
           img.alt = item.altText;
           img.loading = 'lazy';
-
-          galleryItem.appendChild(img);
-          galleryContainer.appendChild(galleryItem);
+          carouselSlide.appendChild(img);
         });
       }
-      */
+
+      // Initialize Carousel
+      let slideIndex = 0;
+      const slides = carouselSlide ? carouselSlide.children : [];
+      const totalSlides = slides.length;
+
+      function showSlides() {
+        if (carouselSlide) {
+          carouselSlide.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+      }
+
+      document.querySelector('.carousel-button.prev').addEventListener('click', () => {
+        slideIndex = (slideIndex === 0) ? totalSlides - 1 : slideIndex - 1;
+        showSlides();
+      });
+
+      document.querySelector('.carousel-button.next').addEventListener('click', () => {
+        slideIndex = (slideIndex === totalSlides - 1) ? 0 : slideIndex + 1;
+        showSlides();
+      });
+
+      // Optional: Auto-play carousel
+      setInterval(() => {
+        slideIndex = (slideIndex === totalSlides - 1) ? 0 : slideIndex + 1;
+        showSlides();
+      }, 5000); // Change slide every 5 seconds
+
 
       // Populate Services section
       const servicesGrid = document.getElementById('services-grid');
@@ -303,31 +411,11 @@
       if (techGrid && techGrid.children.length === 0) {
         techGrid.innerHTML = `<div class="card"><p class="muted">프린팅 방식 정보를 불러올 수 없습니다.</p></div>`;
       }
-      // "우리의 비전" 섹션이 제거되었으므로, 갤러리 관련 폴백 로직도 필요 없습니다.
-      /*
-      const galleryContainer = document.getElementById('image-gallery');
-      if (galleryContainer && galleryContainer.children.length === 0) {
-        galleryContainer.innerHTML = `
-          <div class="gallery-item fallback" data-title="Image Coming Soon 1"><img src="" alt="Fallback Image" class="gallery-image"></div>
-          <div class="gallery-item fallback" data-title="Image Coming Soon 2"><img src="" alt="Fallback Image" class="gallery-image"></div>
-          <div class="gallery-item fallback" data-title="Image Coming Soon 3"><img src="" alt="Fallback Image" class="gallery-image"></div>
-          <div class="gallery-item fallback" data-title="Image Coming Soon 4"><img src="" alt="Fallback Image" class="gallery-image"></div>
-        `;
-        const fallbackImages = galleryContainer.querySelectorAll('.gallery-item.fallback img');
-        fallbackImages.forEach(img => {
-          img.style.background = `
-            radial-gradient(800px 400px at 0% 0%, rgba(106,73,255,.25), transparent 60%),
-            radial-gradient(600px 400px at 100% 0%, rgba(42,127,255,.22), transparent 60%),
-            radial-gradient(500px 400px at 50% 100%, rgba(73,255,154,.18), transparent 60%),
-            linear-gradient(180deg,#0f1425,#0b0f1f)`;
-          img.style.display = 'grid';
-          img.style.placeItems = 'center';
-          img.style.color = '#cdd6e8';
-          img.style.fontSize = '14px';
-          img.alt = '이미지 준비중';
-        });
+      // Fallback for About Image
+      const aboutImageContainer = document.getElementById('about-image-container');
+      if (aboutImageContainer) {
+        aboutImageContainer.innerHTML = `<img src="https://via.placeholder.com/400x300?text=About+Image+Coming+Soon" alt="About Image Placeholder">`;
       }
-      */
     }
   })();
 
