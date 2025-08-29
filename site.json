@@ -1,46 +1,56 @@
 {
   "hero": {
-    "title": "Beyond Printing,<br/>Towards Branding",
-    "sub": "풀시즌은 프린팅 기술과 브랜드 운영을 아우르는 제조·운영사로,<br/>아이디어를 실제 브랜드로 완성합니다."
+    "title": "Beyond Printing,\nTowards Branding",
+    "sub": "풀시즌은 프린팅 기술과 브랜드 운영을 아우르는 제조·운영사로,\n아이디어를 실제 브랜드로 완성합니다.",
+    "tags": ["Printing Support", "Brand House", "Creative Studio"],
+    "button": "Contact"
   },
   "about": {
     "overview": "주식회사 풀시즌(FullSeason)은 2024년 설립된 제조 기반 브랜드 운영사입니다. DTF, HTV Vinyl, Sublimation 등 프린팅 기술과 브랜드 운영 경험을 결합해 차별화된 솔루션을 제공합니다.",
-    "history1": "2024.07 — 주식회사 풀시즌 설립",
-    "history2": "현재 — 자체 브랜드 준비중"
-  },
-  "services": {
-    "print": "DTF / HTV Vinyl / Sublimation<br/>굿즈 · 유니폼 · 프로모션 제작",
-    "brand": "자체 브랜드 기획·운영(Coming Soon)<br/>드랍·프리오더 중심 운영",
-    "creative": "로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작"
-  },
-  "tech": {
-    "dtf": [
-      "고해상도 출력 / 선명한 색감",
-      "면·폴리·합성섬유 등 다양한 원단 적용",
-      "소량 다품종·샘플링 최적화",
-      "빠른 제작 사이클 → 브랜드 운영 속도에 유리",
-      "활용: 의류 브랜드 티셔츠, 커스텀 굿즈, 한정판 드랍"
-    ],
-    "htv": [
-      "글리터·메탈릭·홀로그램·벨벳·형광 등 다양한 소재",
-      "소재 특유의 질감/광택으로 프리미엄 커스텀 구현",
-      "소재별 최적 온도/압력 세팅으로 내구성 확보",
-      "대량·소량 모두 대응 가능한 탄력 공정",
-      "활용: 유니폼, 패션 아이템, 프로모션 굿즈"
-    ],
-    "sub": [
-      "선명하고 오래가는 전사 효과",
-      "적용 품목: 티셔츠, 텀블러, 머그컵, 에코백",
-      "활용: 라이프스타일 굿즈, 브랜드 부자재, 기념품"
+    "history": [
+      "2024.07 — 주식회사 풀시즌 설립",
+      "현재 — 자체 브랜드 준비중"
     ]
   },
-  "contact": [
-  { "label": "Company", "value": "주식회사 풀시즌 (FullSeason Co., Ltd.)" },
-  { "label": "CEO", "value": "김순주" },
-  { "label": "Address", "value": "경상남도 양산시 양주1길 11, 403호 (세종빌딩)" },
-  { "label": "Tel", "value": "1544-5627" },
-  { "label": "Email", "value": "fullseason11@naver.com" },
-  { "label": "Reg. No.", "value": "185-87-03430" },
-  { "label": "Notice", "value": "본 홈페이지는 주식회사 풀시즌의 공식 홈페이지입니다. 소비자 상담·교환·반품은 각 브랜드 스토어 고객센터를 통해 진행됩니다. 전화 상담은 현재 제공하지 않으며, 문의는 이메일 fullseason11@naver.com 으로 부탁드립니다." }
-]
-
+  "services": {
+    "printing": "DTF / HTV Vinyl / Sublimation\n굿즈 · 유니폼 · 프로모션 제작",
+    "brand": "자체 브랜드 기획·운영 (Coming Soon)\n드랍·프리오더 중심 운영",
+    "creative": "로고 디자인 · 웹사이트 · 상세페이지\nAI 기반 비주얼/콘텐츠 제작"
+  },
+  "tech": {
+    "dtf": {
+      "title": "DTF Printing",
+      "points": [
+        "고해상도 출력 / 선명한 색감",
+        "다양한 원단 적용 (면, 폴리, 합성섬유)",
+        "소량 다품종·샘플링 최적화",
+        "빠른 제작 사이클 → 드랍 운영 유리"
+      ]
+    },
+    "htv": {
+      "title": "HTV Vinyl",
+      "points": [
+        "글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재",
+        "소재별 열/압력 최적화 프레스 세팅",
+        "유니폼, 패션 아이템, 프로모션 굿즈"
+      ]
+    },
+    "sublimation": {
+      "title": "Sublimation",
+      "points": [
+        "섬유 및 소품에 선명하고 오래가는 전사 효과",
+        "티셔츠, 텀블러, 머그컵, 에코백 적용"
+      ]
+    }
+  },
+  "company": {
+    "name": "주식회사 풀시즌 (FullSeason Co., Ltd.)",
+    "ceo": "김순주",
+    "address": "경상남도 양산시 양주1길 11, 403호 (세종빌딩)",
+    "tel": "1544-5627",
+    "email": "fullseason11@naver.com",
+    "regno": "185-87-03430",
+    "notice": "본 홈페이지는 주식회사 풀시즌의 공식 홈페이지입니다. 소비자 상담·교환·반품은 각 브랜드 스토어 고객센터를 통해 진행됩니다. 전화 상담은 현재 제공하지 않으며, 문의는 이메일 fullseason11@naver.com 으로 부탁드립니다."
+  },
+  "ai_notice": "본 홈페이지에 사용된 인물 이미지는 AI 기술로 생성되었으며, 실제 임직원과는 무관합니다."
+}
