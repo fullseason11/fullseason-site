@@ -1,67 +1,57 @@
 {
-  "companyInfo": {
-    "name": "주식회사 풀시즌 (FullSeason Co., Ltd.)",
-    "ceo": "김순주",
-    "address": "경상남도 양산시 양주1길 11, 403호 (세종빌딩)",
-    "phone": "1544-5627",
-    "email": "fullseason11@naver.com",
-    "bizRegNo": "185-87-03430"
+  "site": {
+    "title": "FullSeason"
   },
-  "carouselImages": [
-    {
-      "filename": "Untitled1.png",
-      "altText": "Printing & Manufacturing"
-    },
-    {
-      "filename": "Untitled2.png",
-      "altText": "Brand Operation"
-    },
-    {
-      "filename": "Untitled3.png",
-      "altText": "Creative Solutions"
-    }
+  "seo": {
+    "title": "FullSeason · Beyond Printing, Towards Branding",
+    "description": "프린팅 기술과 브랜드 운영이 만나는 지점에서, 우리는 제조에서 브랜드로 성장합니다."
+  },
+  "nav": [
+    { "label": "서비스", "href": "#services" },
+    { "label": "쇼케이스", "href": "#showcase" },
+    { "label": "문의", "href": "#contact" }
   ],
-  "services": [
-    {
-      "title": "Printing & Manufacturing",
-      "description": "DTF / HTV Vinyl / Sublimation<br/>굿즈 · 유니폼 · 프로모션 제작"
-    },
-    {
-      "title": "Brand Operation",
-      "description": "자체 브랜드 기획·운영(Coming Soon)<br/>드랍·프리오더 중심 운영"
-    },
-    {
-      "title": "Creative Solutions",
-      "description": "로고 디자인 · 웹사이트 · 상세페이지<br/>AI 기반 비주얼/콘텐츠 제작"
-    }
+  "cta": { "label": "프로젝트 상담", "href": "#contact" },
+
+  "hero": {
+    "pill": "Beyond Printing → Towards Branding",
+    "title": "프린팅은 단순한 기술이 아닙니다.",
+    "subtitle": "브랜드의 감성과 만나는 순간, 그것은 하나의 콘텐츠가 되어 당신의 이야기를 전합니다. 우리는 제조에서 시작해, 브랜드로 성장하며, 콘텐츠로 문화를 남깁니다.",
+    "actions": [
+      { "label": "소개서 보기 (PDF)", "href": "/profile.pdf" },
+      { "label": "포트폴리오", "href": "/portfolio" }
+    ]
+  },
+
+  "services": {
+    "printing_tags": ["DTF", "HTV Vinyl", "Sublimation", "Color Fidelity", "Durability"],
+    "brand_tags": ["드랍 운영", "프리오더", "팬덤 리텐션", "SKU 최소화"],
+    "creative_tags": ["로고 디자인", "웹사이트", "상세페이지", "AI 비주얼"]
+  },
+
+  "showcase": {
+    "title": "제조에서 브랜드로, 그리고 콘텐츠로",
+    "desc": "빠른 회전과 팬덤 기반 운영을 통해 브랜드의 지속 가능성을 높입니다.",
+    "tags": ["Kitsch Castle", "Vibe-Lite", "Vibe-Signature", "Vibe-Archive"],
+    "image": "/images/showcase.jpg"
+  },
+
+  "company": {
+    "name": "주식회사 풀시즌",
+    "address": "경상남도 양산시 양주1길 11, 403호(중부동, 세종빌딩)",
+    "tel": "1544-5627",
+    "fax": "0508-925-4398",
+    "email": "fullseason11@naver.com"
+  },
+
+  "social": [
+    { "label": "Instagram", "href": "https://instagram.com/" },
+    { "label": "YouTube", "href": "https://youtube.com/" },
+    { "label": "Naver Blog", "href": "https://blog.naver.com/" }
   ],
-  "printingMethods": [
-    {
-      "title": "DTF Printing",
-      "videoPlaceholder": "영상 준비 중 (외부 링크 예정)",
-      "features": [
-        "고해상도 출력 / 선명한 색감",
-        "다양한 원단 적용 (면, 폴리, 합성섬유)",
-        "소량 다품종·샘플링 최적화",
-        "빠른 제작 사이클 → 드랍 운영 유리"
-      ]
-    },
-    {
-      "title": "HTV Vinyl",
-      "videoPlaceholder": "영상 준비 중",
-      "features": [
-        "글리터/메탈릭/홀로그램/벨벳/형광 등 다양한 소재",
-        "소재별 열/압력 최적화 프레스 세팅",
-        "유니폼, 패션 아이템, 프로모션 굿즈"
-      ]
-    },
-    {
-      "title": "Sublimation",
-      "videoPlaceholder": "영상 준비 중",
-      "features": [
-        "섬유 및 소품에 선명하고 오래가는 전사 효과",
-        "티셔츠, 텀블러, 머그컵, 에코백 적용"
-      ]
-    }
-  ]
+
+  "footer": {
+    "copyright": "© FullSeason Co., Ltd.",
+    "note": "All seasons, all the way."
+  }
 }
